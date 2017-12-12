@@ -267,9 +267,7 @@ describe('JSON body parser', function() {
         });
     });
 
-    it('restify-GH-318 get request with body (requestBodyOnGet=true)', function(
-        done
-    ) {
+    it('restify-GH-318 get request with body (requestBodyOnGet=true)', function(done) {
         SERVER.use(
             restify.plugins.bodyParser({
                 mapParams: true,

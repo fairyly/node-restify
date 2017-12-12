@@ -92,9 +92,7 @@ describe('fielded text parser', function() {
         });
     });
 
-    it('#100 should parse CSV body even if bodyparser declared twice', function(
-        done
-    ) {
+    it('#100 should parse CSV body even if bodyparser declared twice', function(done) {
         SERVER.use(restify.plugins.bodyParser());
         var options = {
             path: '/data',

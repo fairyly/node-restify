@@ -70,9 +70,7 @@ describe('oauth2 token parser', function() {
         });
     });
 
-    it('should do nothing (token is null) if there is no oauth2 token set', function(
-        done
-    ) {
+    it('should do nothing (token is null) if there is no oauth2 token set', function(done) {
         var opts = {
             path: '/test2/do/nothing'
         };
@@ -117,9 +115,7 @@ describe('oauth2 token parser', function() {
         client.end();
     });
 
-    it('should parse oauth2 token from request body(case-insensitive)', function(
-        done
-    ) {
+    it('should parse oauth2 token from request body(case-insensitive)', function(done) {
         var test4Url = '/test4/contenttype/mixedcase';
 
         SERVER.post(test4Url, function(req, res, next) {
@@ -174,9 +170,7 @@ describe('oauth2 token parser', function() {
         client.end();
     });
 
-    it('should fail if more than one method is used to set the oauth2 token', function(
-        done
-    ) {
+    it('should fail if more than one method is used to set the oauth2 token', function(done) {
         SERVER.post('/test6/multi/method/fail', function(req, res, next) {
             assert.isNull(req.oauth2.accessToken);
             res.send();

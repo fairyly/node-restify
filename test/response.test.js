@@ -395,9 +395,7 @@ test('redirect using default hostname with custom port', function(t) {
 });
 
 // jscs:disable maximumLineLength
-test('redirect should cause InternalError when invoked without next', function(
-    t
-) {
+test('redirect should cause InternalError when invoked without next', function(t) {
     SERVER.get('/9', function(req, res, next) {
         res.redirect();
     });

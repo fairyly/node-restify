@@ -94,9 +94,7 @@ describe('request id headers', function() {
         });
     });
 
-    it('GH-1086: should use default uuid request id if none provided', function(
-        done
-    ) {
+    it('GH-1086: should use default uuid request id if none provided', function(done) {
         SERVER.get('/1', function(req, res, next) {
             assert.ok(req.getId());
             assert.ok(validator.isUUID(req.getId()));

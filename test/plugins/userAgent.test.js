@@ -93,9 +93,7 @@ describe('userAgent pre-route handler', function() {
     // the userAgentConnection should not remove the content-length header from
     // the response, and it should not replace the value of the 'connection'
     // header by 'close'.
-    it('sets proper headers for HEAD requests from non-curl clients', function(
-        done
-    ) {
+    it('sets proper headers for HEAD requests from non-curl clients', function(done) {
         var req = http.request(
             {
                 hostname: SERVER_ADDRESS,

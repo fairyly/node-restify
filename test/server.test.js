@@ -224,9 +224,7 @@ test('rm route and clear cached route', function(t) {
     });
 });
 
-test('_routeErrorResponse does not cause uncaughtException when called when header has already been sent', function(
-    t
-) {
+test('_routeErrorResponse does not cause uncaughtException when called when header has already been sent', function(t) {
     SERVER.on('MethodNotAllowed', function(req, res, error, next) {
         res.json(405, { status: 'MethodNotAllowed' });
         try {
@@ -249,9 +247,7 @@ test('_routeErrorResponse does not cause uncaughtException when called when head
     });
 });
 
-test('GH-1171: rm one version of the routes, other versions should still work', function(
-    t
-) {
+test('GH-1171: rm one version of the routes, other versions should still work', function(t) {
     var routeOne = SERVER.get(
         { path: '/hello/:name', version: '1.0.0' },
         function(req, res, next) {
@@ -1178,9 +1174,7 @@ test('gh-635 routes match the maximum version', function(t) {
 });
 
 test('versioned route matching should prefer \
-    first match if equal versions', function(
-    t
-) {
+    first match if equal versions', function(t) {
     var p = '/' + uuid.v4();
 
     SERVER.get(
@@ -2014,9 +2008,7 @@ test('error handler defers "after" event', function(t) {
     });
 });
 
-test('gh-757 req.absoluteUri() defaults path segment to req.path()', function(
-    t
-) {
+test('gh-757 req.absoluteUri() defaults path segment to req.path()', function(t) {
     SERVER.get('/the-original-path', function(req, res, next) {
         var prefix = 'http://127.0.0.1:' + PORT;
         t.equal(
@@ -2360,9 +2352,7 @@ test('GH-667 emit error event for generic Errors', function(t) {
     /*eslint-enable no-shadow*/
 });
 
-test('GH-667 returning error in error handler should not do anything', function(
-    t
-) {
+test('GH-667 returning error in error handler should not do anything', function(t) {
     SERVER.on('ImATeapot', function(req, res, err, cb) {
         // attempt to pass a new error back
         return cb(new errors.LockedError('oh noes'));
@@ -2587,9 +2577,7 @@ test('GH-1078: server name should be customizable', function(t) {
     });
 });
 
-test('GH-1078: server name should be overridable and not sent down', function(
-    t
-) {
+test('GH-1078: server name should be overridable and not sent down', function(t) {
     var myServer = restify.createServer({
         name: ''
     });
@@ -2755,9 +2743,7 @@ test('should increment/decrement inflight request count', function(t) {
     });
 });
 
-test('should increment/decrement inflight request count for concurrent reqs', function(
-    t
-) {
+test('should increment/decrement inflight request count for concurrent reqs', function(t) {
     SERVER.get('/foo1', function(req, res, next) {
         t.equal(SERVER.inflightRequests(), 1);
         setTimeout(function() {
@@ -2853,9 +2839,7 @@ test('should cleanup inflight requests count for timeouts', function(t) {
     });
 });
 
-test('should cleanup inflight requests count on uncaughtExceptions', function(
-    t
-) {
+test('should cleanup inflight requests count on uncaughtExceptions', function(t) {
     SERVER.on('uncaughtException', function(req, res, route, err) {
         res.send(500, 'asplode');
     });
